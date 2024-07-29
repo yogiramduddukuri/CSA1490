@@ -1,0 +1,20 @@
+%{
+#include<stdio.h>
+%}
+%%
+if |
+else |
+printf {printf("%s is key word",yytext);}
+[0-9]+ {printf("%s are numbers", yytext);}
+[a-zA-Z]+ {printf("\n%s are words", yytext);}
+.|\n {ECHO;}
+%%
+int main()
+{
+ printf("\n enter the statement=");
+ yylex();
+}
+int yywrap()
+{
+ return 1;
+}
